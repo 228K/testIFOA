@@ -4,7 +4,6 @@ import  pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib as jb
-from scipy.signal.windows import flattop
 
 
 def pairplot(df, feat, hue):
