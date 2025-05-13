@@ -22,11 +22,11 @@ if __name__ == '__main__':
     upload_file= st.file_uploader('sceglie il file')#, type={'csv','xlsx'})
     if upload_file is not None:
         if upload_file.name.endswith('.csv'):
-            df = pd.read_csv(upload_file)
+            df = pd.read_csv(upload_file,header=None)
         elif upload_file.name.endswith('.xlsx'):
-            df=pd.read_excel(upload_file)
-            #df.columns = ['sepal length', 'sepal width', 'petal length', 'petal width', 'class']
-
+            df=pd.read_excel(upload_file,header=None)
+        
+        df.columns = ['sepal length', 'sepal width', 'petal length', 'petal width', 'class']
         cate= [x for x,t in zip(df.columns.to_list(), df.dtypes) if t.kind not in {'i','f'}]
 
         st.header('Prime 5 righe')
